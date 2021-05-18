@@ -1,0 +1,1 @@
+1 - Hamburguer, 2 - Pizza, 3 - Sushi, 4 - Temaki, 5 - Yaksoba, 6 - Bacalhau, 7 - Batata frita, 8 - Churrasco, 9 - Acarajé e 10 - Coxinha.
