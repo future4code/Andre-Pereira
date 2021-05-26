@@ -21,7 +21,7 @@
 let idade = Number(prompt("Qual a sua idade?"))
 let idadeAmigo = Number(prompt("Qual idade do seu amigo?"))
 console.log("Sua idade é maior do que a do seu melhor amigo?", idade > idadeAmigo)
-console.log(idade - idadeAmigo)
+console.log(Math.abs(idade - idadeAmigo))
 
 //2 - 
 let numeroPar = Number(prompt("Digite um número par."))
@@ -60,7 +60,7 @@ console.log("De 80ºC para Fahrenheit: " + grausParaFar + "ºF")
 
 let conversaoDupla = (30) * (9/5) + 32
 let conversaoFinal = (conversaoDupla - 32) * (5/9) + 273.15
-console.log("De 30ºC para Fahrenheit e Kelvin: " + conversaoDupla + "ºF e " + conversaoFinal + "ºK")
+console.log("De 30ºC para Fahrenheit e Kelvin respectivamente: " + conversaoDupla + "ºF e " + conversaoFinal + "ºK")
 
 let celciusUser = Number(prompt("Digite a temperatura Graus Celcius."))
 let conversaoUser = (celciusUser) * (9/5) + 32
