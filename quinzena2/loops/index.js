@@ -39,7 +39,7 @@ let quantidadeBichos = Number(prompt("Quantos animais de estimação você tem?"
 let totalBichos = 0
 let nomeBicho = []
 
-if (quantidadeBichos === 0) {
+if (quantidadeBichos <= 0) {
     console.log("Que pena! Você pode adotar um pet!")
 
 } else {
