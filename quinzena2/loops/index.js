@@ -86,20 +86,21 @@ function encontrarIndice(array) {
     return array
 }
 
-for (let numero of arrayOriginal) {
-    if (numero > maiorNumero) {
-        maiorNumero = numero
-        // console.log(`Maior número ${maiorNumero}`)
+function maiorOuMenor(array) {
+    for (let numero of array) {
+        if (numero > maiorNumero) {
+            maiorNumero = numero
+            // console.log(`Maior número ${maiorNumero}`)
+        }
+
+        if (numero < menorNumero) {
+            menorNumero = numero
+            // console.log(`Menor número ${menorNumero}`)
+        }
     }
 
-    if(numero < menorNumero){
-        menorNumero = numero
-        // console.log(`Menor número ${menorNumero}`)
-    }
+    return console.log(`O maior número é ${maiorNumero} e o menor é ${menorNumero}.`)
 }
-
-
-
 
 imprimirUmPorVez(arrayOriginal)
 
@@ -109,4 +110,4 @@ console.log(encontrarPares())
 
 encontrarIndice(arrayOriginal)
 
-console.log(`O maior número é ${maiorNumero} e o menor é ${menorNumero}.`)
+maiorOuMenor(arrayOriginal)
