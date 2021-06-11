@@ -51,8 +51,8 @@
 // }
 
 //2.
-let arrayOriginal = [6, 8, 7, 53, 47, 120, 90, 180, 64]
-let menorNumero = 0
+let arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
+let menorNumero = 99999999999
 let maiorNumero = 0
 
 function imprimirUmPorVez(array) {
@@ -69,13 +69,14 @@ function dividirPorDez(array) {
     return array
 }
 
-function encontrarPares(array) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] % 2 === 0) {
-            console.log(array[i])
+function encontrarPares() {
+    let numPares = []
+    for (let i = 0; i < arrayOriginal.length; i++) {
+        if (arrayOriginal[i] % 2 === 0) {
+            numPares.push(arrayOriginal[i])
         }
     }
-    return array
+    return numPares
 }
 
 function encontrarIndice(array) {
@@ -85,24 +86,26 @@ function encontrarIndice(array) {
     return array
 }
 
-for (let novoArray of arrayOriginal) {
-    if (novoArray > maiorNumero) {
-        maiorNumero = novoArray
+for (let numero of arrayOriginal) {
+    if (numero > maiorNumero) {
+        maiorNumero = numero
+        // console.log(`Maior número ${maiorNumero}`)
+    }
+
+    if(numero < menorNumero){
+        menorNumero = numero
+        // console.log(`Menor número ${menorNumero}`)
     }
 }
 
-for (let i = 0; i < arrayOriginal.length; arrayOriginal++) {
-    if (i < arrayOriginal[i]) {
-        menorNumero = arrayOriginal[i]
-    }
-}
+
 
 
 imprimirUmPorVez(arrayOriginal)
 
 dividirPorDez(arrayOriginal)
 
-encontrarPares(arrayOriginal)
+console.log(encontrarPares())
 
 encontrarIndice(arrayOriginal)
 
