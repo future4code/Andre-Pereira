@@ -35,20 +35,20 @@
 //_______________________________________________________________________________________________________________________________________________________
 // Atividade de escrita de código
 //1.
-// let quantidadeBichos = Number(prompt("Quantos animais de estimação você tem?"))
-// let totalBichos = 0
-// let nomeBicho = []
+let quantidadeBichos = Number(prompt("Quantos animais de estimação você tem?"))
+let totalBichos = 0
+let nomeBicho = []
 
-// if (quantidadeBichos === 0) {
-//     console.log("Que pena! Você pode adotar um pet!")
+if (quantidadeBichos === 0) {
+    console.log("Que pena! Você pode adotar um pet!")
 
-// } else {
-//     while (totalBichos < quantidadeBichos) {
-//         nomeBicho.push(prompt("Digite um nome para o Pet"))
-//         totalBichos++
-//     }
-//     console.log(nomeBicho.toString())
-// }
+} else {
+    while (totalBichos < quantidadeBichos) {
+        nomeBicho.push(prompt(`Digite o nome do ${totalBichos + 1}ª Pet`))
+        totalBichos++
+    }
+    console.log(nomeBicho.toString())
+}
 
 //2.
 let arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
