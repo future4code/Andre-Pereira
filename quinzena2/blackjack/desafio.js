@@ -46,8 +46,7 @@ while (vamosJogar) {
       let comprarNovaCarta = confirm(`Sua primeira carta é ${userOne.texto} e ${userTwo.texto}. A carta revelada do computador é ${computerOne.texto}
       Deseja comprar mais uma carta?`)
 
-      // let flag = false
-      // flag = comprarNovaCarta
+      // Compra da nova carta para o jogador
       while (comprarNovaCarta) {
          let novaCartaJogador = comprarCarta()
          cartasJogador.push(novaCartaJogador.texto)
@@ -59,6 +58,8 @@ while (vamosJogar) {
          }
       }
 
+
+      // Compra das novas cartas do computador
       while (pontosComputer <= pontosUser) {
          let novaCartaComputador = comprarCarta()
          cartasComputador.push(novaCartaComputador.texto)
@@ -66,7 +67,6 @@ while (vamosJogar) {
       }
 
       let mensagem = ""
-
       if (pontosComputer > 21 && pontosUser > 21) {
          mensagem = "Empate!"
       } else if (pontosUser === pontosComputer) {
