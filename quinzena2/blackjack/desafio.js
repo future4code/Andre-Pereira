@@ -11,22 +11,26 @@
  * 
  */
 
-console.log("Bem-vindo ao jogo de blackjack")
+alert("Bem-vindo ao jogo de BlackJack")
 let vamosJogar = confirm("Vamos iniciar o jogo BlackJack?")
 if (vamosJogar === false) {
-   console.log("Você Desistiu, aperte F5 para recomeçar.")
+   alert("Você Desistiu, aperte F5 para recomeçar.")
 }
 
-while (vamosJogar) {
+let cartasJogador = []
+let cartasComputador = []
 
+while (vamosJogar) {
    if (vamosJogar) {
       let userOne = comprarCarta()
       let userTwo = comprarCarta()
+      cartasJogador.push(userOne.texto, userTwo.texto)
       let computerOne = comprarCarta()
       let computerTwo = comprarCarta()
+      cartasComputador.push(computerOne.texto, computerTwo.texto)
       let cartaNovamente = ((userOne.valor === 11 && userOne.texto === 'A') && (userTwo.valor === 11 && userTwo.texto === 'A')) || ((computerOne.valor === 11 && computerOne.texto === 'A') && (computerTwo.valor === 11 && computerTwo.texto === 'A'))
 
-
+      // Validação dos Ases
       while (cartaNovamente) {
          userOne = comprarCarta()
          userTwo = comprarCarta()
@@ -35,31 +39,56 @@ while (vamosJogar) {
          cartaNovamente = confirm("Temos que comprar as cartas novamente.")
       }
 
+      // A pontuação geral
       let pontosUser = userOne.valor + userTwo.valor
       let pontosComputer = computerOne.valor + computerTwo.valor
 
       let comprarNovaCarta = confirm(`Sua primeira carta é ${userOne.texto} e ${userTwo.texto}. A carta revelada do computador é ${computerOne.texto}
       Deseja comprar mais uma carta?`)
 
-      if (comprarNovaCarta) {
-         let novaCarta = comprarCarta()
-         pontosUser += novaCarta.valor
+      // let flag = false
+      // flag = comprarNovaCarta
+      while (comprarNovaCarta) {
+         let novaCartaJogador = comprarCarta()
+         cartasJogador.push(novaCartaJogador.texto)
+         pontosUser += novaCartaJogador.valor
+         comprarNovaCarta = confirm(`Sua primeira carta é ${cartasJogador}. A carta revelada do computador é ${computerOne.texto}
+      Deseja comprar mais uma carta?`)
+         if (comprarNovaCarta === false) {
+            break
+         }
       }
 
-      console.log(`Usuário - cartas: ${userOne.texto} ${userTwo.texto} - ${pontosUser}`)
-      console.log(`Computador - cartas: ${computerOne.texto} ${computerTwo.texto} - ${pontosComputer}`)
+      while (pontosComputer <= pontosUser) {
+         let novaCartaComputador = comprarCarta()
+         cartasComputador.push(novaCartaComputador.texto)
+         pontosComputer += novaCartaComputador.valor
+      }
 
-      if (pontosUser > pontosComputer) {
-         console.log("O usuário ganhou!")
-      } else if (pontosComputer > pontosUser) {
-         console.log("O computador ganhou!")
+      let mensagem = ""
+
+      if (pontosComputer > 21 && pontosUser > 21) {
+         mensagem = "Empate!"
       } else if (pontosUser === pontosComputer) {
-         console.log("Empate!")
+         mensagem = "Empate!"
+      } else if (pontosComputer > 21) {
+         mensagem = "O usuário ganhou!"
+      } else if (pontosUser > 21) {
+         mensagem = "O computador ganhou!"
+      } else if (pontosUser > pontosComputer) {
+         mensagem = "O usuário ganhou!"
+      } else if (pontosComputer > pontosUser) {
+         mensagem = "O computador ganhou!"
       }
 
+      alert("Suas cartas são " + cartasJogador + ". Sua pontuação é " + pontosUser + ".\n" +
+         "As cartas do computador são " + cartasComputador + "." + "A pontuação do computador é " + pontosComputer + ".\n" +
+         mensagem)
 
    } else {
-      console.log("O jogo acabou")
+      alert("O jogo acabou")
    }
-   vamosJogar = confirm("Deseja jogar novamente?")
+   vamosJogar = confirm("Quer iniciar uma nova rodada?")
+   cartasJogador = []
+   cartasComputador = []
 }
