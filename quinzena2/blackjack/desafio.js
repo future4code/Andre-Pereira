@@ -44,7 +44,7 @@ while (vamosJogar) {
 
       // Compra da nova carta para o jogador
       while (pontosUser < 21) {
-         if (comprarNovaCarta = confirm(`Suas cartas são ${cartasJogador.toString().replaceAll(",", " ")}. A carta revelada do computador é ${computerOne.texto}
+         if (comprarNovaCarta = confirm(`Suas cartas são ${cartasJogador.toString().replaceAll(",", " - ")}. A carta revelada do computador é ${computerOne.texto}
 Deseja comprar mais uma carta?`)) {
             let novaCartaJogador = comprarCarta()
             cartasJogador.push(novaCartaJogador.texto)
