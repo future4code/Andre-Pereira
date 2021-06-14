@@ -11,10 +11,10 @@
  * 
  */
 
-alert("Bem-vindo ao jogo de BlackJack")
-let vamosJogar = confirm("Vamos iniciar o jogo BlackJack?")
+alert("Bem-vindo(a) ao jogo - BlackJack")
+let vamosJogar = confirm("Vamos iniciar o jogo?")
 if (vamosJogar === false) {
-   alert("Você Desistiu, aperte F5 para recomeçar.")
+   alert("Para recomeçar o jogo aperte F5 ou atualize a página.")
 }
 
 let cartasJogador = []
@@ -44,7 +44,7 @@ while (vamosJogar) {
 
       // Compra da nova carta para o jogador
       while (pontosUser < 21) {
-         if (comprarNovaCarta = confirm(`Suas cartas são ${cartasJogador}. A carta revelada do computador é ${computerOne.texto}
+         if (comprarNovaCarta = confirm(`Suas cartas são ${cartasJogador.toString().replaceAll(",", " ")}. A carta revelada do computador é ${computerOne.texto}
 Deseja comprar mais uma carta?`)) {
             let novaCartaJogador = comprarCarta()
             cartasJogador.push(novaCartaJogador.texto)
@@ -76,8 +76,8 @@ Deseja comprar mais uma carta?`)) {
          mensagem = "O computador ganhou!"
       }
 
-      alert("Suas cartas são " + cartasJogador + ". Sua pontuação é " + pontosUser + ".\n" +
-         "As cartas do computador são " + cartasComputador + "." + " A pontuação do computador é " + pontosComputer + ".\n" +
+      alert("Suas cartas são " + cartasJogador.toString().replaceAll(",", " - ") + ". Sua pontuação é " + pontosUser + ".\n" +
+         "As cartas do computador são " + cartasComputador.toString().replaceAll(",", " - ") + "." + " A pontuação do computador é " + pontosComputer + ".\n" +
          mensagem)
 
    } else {
