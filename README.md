@@ -1,27 +1,25 @@
-Alunos(as), sejam bem-vindos(as)!
-
-Esse repositório vai acompanhar vocês até o final do curso, para mantermos a organização, sugerimos que vocês sigam a seguinte estrutura:
+### Formato de entregas
 
 ```
 .
 ├── semana-0
 │   ├── aula1
 │   ├── aula2
-│   └── projeto-nome
+│   └── Sem-projeto
 |
 ├── semana-1
 │   ├── aula3
 │   ├── aula4
 │   ├── aula5
 │   ├── aula6
-│   └── projeto-nome
+│   └── Lista-logica
 |
 ├── semana-2
 │   ├── aula7
 │   ├── aula8
 │   ├── aula9
 │   ├── aula10
-│   └── projeto-nome
+│   └── BlackJack
 |
 ├── semana-3
 │   ├── aula11
