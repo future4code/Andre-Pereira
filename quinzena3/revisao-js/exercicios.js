@@ -31,7 +31,14 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
+  let numeroMaior = []
+  for (let numero of array) {
+    if (numero > numeroMaior) {
+      numeroMaior = numero
+    }
+  }
 
+  return numeroMaior
 }
 
 // EXERCÍCIO 05
