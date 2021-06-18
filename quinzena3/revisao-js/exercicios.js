@@ -65,6 +65,16 @@ function retornaExpressoesBooleanas() {
   return novoArray
 }
 
+// EXERCÍCIO 07
+
+function retornaNNumerosPares(n) {
+  let retornaPares = []
+  for (let i = 0; i < n; i++) {
+    retornaPares.push(i * 2)
+  }
+  return retornaPares
+}
+
 // EXERCÍCIO 08
 function checaTriangulo(a, b, c) {
   // return 'Escaleno'
