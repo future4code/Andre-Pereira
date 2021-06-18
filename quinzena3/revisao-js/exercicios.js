@@ -80,7 +80,13 @@ function checaTriangulo(a, b, c) {
   // return 'Escaleno'
   // return 'Equilátero'
   // return 'Isósceles'
-
+  if (a && b === c) {
+    return 'Equilátero'
+  } else if (a === b || !c) {
+    return 'Isósceles'
+  } else if (!a || !b === !c) {
+    return 'Escaleno'
+  }
 
 }
 
@@ -92,6 +98,23 @@ function comparaDoisNumeros(num1, num2) {
   //   maiorDivisivelPorMenor: Y,
   //   diferenca: Z
   // }
+
+  const retorno = {
+    maiorNumero: 0,
+    maiorDivisivelPorMenos: 0,
+    diferenca: 0
+  }
+
+  if (num1 > num2) {
+    retorno.maiorNumero = num1
+  } else if (num1 < num2) {
+    retorno.maiorNumero = num2
+  } else {
+    retorno.maiorNumero = 'São iguais'
+  }
+
+
+  return retorno
 
 }
 
