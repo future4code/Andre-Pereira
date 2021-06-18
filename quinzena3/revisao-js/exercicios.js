@@ -9,7 +9,16 @@ function inverteArray(array) {
 }
 // EXERCÍCIO 02
 function retornaNumerosParesElevadosADois(array) {
- 
+  const numerosPares = array.filter((valor) => {
+    return valor % 2 === 0
+  })
+  const numerosElevados = numerosPares.map((valor) => {
+    if (valor % 2 === 0) {
+      return valor * valor
+    }
+  })
+
+  return numerosElevados
 }
 
 // EXERCÍCIO 03
@@ -19,17 +28,17 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
-  
+
 }
 
 // EXERCÍCIO 05
 function retornaQuantidadeElementos(array) {
-  
+
 }
 
 // EXERCÍCIO 06
 function retornaExpressoesBooleanas() {
-  
+
 }
 
 // EXERCÍCIO 08
@@ -37,7 +46,7 @@ function checaTriangulo(a, b, c) {
   // return 'Escaleno'
   // return 'Equilátero'
   // return 'Isósceles'
-  
+
 
 }
 
@@ -49,7 +58,7 @@ function comparaDoisNumeros(num1, num2) {
   //   maiorDivisivelPorMenor: Y,
   //   diferenca: Z
   // }
- 
+
 }
 
 // EXERCÍCIO 10
@@ -84,12 +93,12 @@ function anonimizaPessoa(pessoa) {
 
 // EXERCÍCIO 16A
 function maioresDe18(arrayDePessoas) {
- 
+
 }
 
 // EXERCÍCIO 16B
 function menoresDe18(arrayDePessoas) {
- 
+
 }
 
 // EXERCÍCIO 17A
