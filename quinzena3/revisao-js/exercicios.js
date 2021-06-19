@@ -239,7 +239,11 @@ function multiplicaArrayPor2(array) {
 
 // EXERCÍCIO 17B
 function multiplicaArrayPor2S(array) {
+  const multiplicarComString = array.map(array => {
+    return (array * 2).toString()
+  })
 
+  return multiplicarComString
 }
 
 // EXERCÍCIO 17C
