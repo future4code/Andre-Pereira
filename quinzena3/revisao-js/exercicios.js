@@ -101,18 +101,33 @@ function comparaDoisNumeros(num1, num2) {
 
   const retorno = {
     maiorNumero: 0,
-    maiorDivisivelPorMenos: 0,
+    maiorDivisivelPorMenor: 0,
     diferenca: 0
   }
 
+  // Descobrir o maior Numero e guardar numa variavel
   if (num1 > num2) {
     retorno.maiorNumero = num1
+    numeroEscolhidoMaior = num1
+    numeroEscolhidoMenor = num2
   } else if (num1 < num2) {
     retorno.maiorNumero = num2
+    numeroEscolhidoMaior = num2
+    numeroEscolhidoMenor = num1
   } else {
-    retorno.maiorNumero = 'São iguais'
+    retorno.maiorNumero = num1
+
   }
 
+  // retornar se ele é divisel pelo menor
+  if (numeroEscolhidoMaior % numeroEscolhidoMenor === 0) {
+    retorno.maiorDivisivelPorMenor = true
+  } else {
+    retorno.maiorDivisivelPorMenor = false
+  }
+
+  // Diferenca entre os numeros maiores pelos menores.
+  retorno.maiorNumero == num1 ? retorno.diferenca = num1 - num2 : retorno.diferenca = num2 - num1
 
   return retorno
 
