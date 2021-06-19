@@ -135,7 +135,17 @@ function comparaDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 10
 function segundoMaiorEMenor(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (array[j] > array[j + 1]) {
+        let temporario = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temporario;
+      }
+    }
+  }
 
+  return [array[array.length - 2], array[1]]
 
 }
 
