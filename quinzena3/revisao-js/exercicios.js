@@ -284,11 +284,11 @@ function ordenaPorData(consultasData) {
 // EXERCÍCIO 20
 function calculaSaldo(contas) {
      
-  const atualizarSaldo = contas.map(valor => {
+  const atualizarSaldo = contas.map(conta => {
     return {
-      cliente: valor.cliente,
-      saldoTotal: valor.saldoTotal - valor.compras.reduce((acumulador, atual ) => acumulador += atual, 0),
-      compras: valor.compras
+      cliente: conta.cliente,
+      saldoTotal: conta.saldoTotal - conta.compras.reduce((acumulador, atual ) => acumulador += atual, 0),
+      compras: conta.compras
     }
   })
 
