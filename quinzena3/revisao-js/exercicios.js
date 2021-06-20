@@ -284,6 +284,22 @@ function ordenaPorNome(consultasNome) {
 
 // EXERCÍCIO 19B
 function ordenaPorData(consultasData) {
+  // Transformar a data em milisegundos para comparar com o maior.
+  const ordenarData = (a, b) => {
+    return new Date(a.dataDaConsulta).getTime() - new Date(b.dataDaConsulta).getTime()
+  }
+
+  // Converter para padrão americano.
+  consultasData.forEach(consulta => {
+    consulta.dataDaConsulta = consulta.dataDaConsulta.split('/').reverse().join('-')
+  })
+
+  consultasData.sort(ordenarData).forEach(consulta => {
+    consulta.dataDaConsulta = consulta.dataDaConsulta.split('-').reverse().join('/')
+  })
+
+  return consultasData
+
 
 }
 
