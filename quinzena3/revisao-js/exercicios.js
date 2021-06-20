@@ -273,40 +273,87 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 
 // EXERCÍCIO 19A
 function ordenaPorNome(consultasNome) {
+  let flag = false;
+  for (let i = 0; i < consultasNome.length - 1; i++) {
+    flag = true;
+    for (let i = 0; i < consultasNome.length - 1; i++) {
+      let proximoNome = consultasNome[i + 1].nome
+      let verificaPrimeiroNome = (consultasNome[i].nome).localeCompare(proximoNome)
+      if (verificaPrimeiroNome === 1) {
+        flag = false;
+        let temporario = consultasNome[i + 1];
+        consultasNome[i + 1] = consultasNome[i];
+        consultasNome[i] = temporario;
+      }
+    }
+  }
+  return consultasNome;
 
-  return consultasNome.sort((a, b) => {
-    if (a.nome < b.nome) return -1
-    return 0
-  })
+
+
+  // Utilizando sort()
+  // return consultasNome.sort((a, b) => {
+  //   if (a.nome < b.nome) return -1
+  //   return 0
+  // })
 
 
 }
 
 // EXERCÍCIO 19B
 function ordenaPorData(consultasData) {
-  // Transformar a data em milisegundos para comparar com o maior.
-  const ordenarData = (a, b) => {
-    return new Date(a.dataDaConsulta).getTime() - new Date(b.dataDaConsulta).getTime()
+
+  const formatarData = (data) => {
+    const alterarData = data.split('/')
+    let dia = alterarData[0]
+    let mes = alterarData[1]
+    let ano = alterarData[2]
+    let novoFormatoData = [ano, mes, dia]
+    return novoFormatoData
   }
 
-  // Converter para padrão americano.
-  consultasData.forEach(consulta => {
-    consulta.dataDaConsulta = consulta.dataDaConsulta.split('/').reverse().join('-')
-  })
+  let flag = false;
+  for (let i = 0; i < consultasData.length - 1; i++) {
+    flag = true;
+    for (let i = 0; i < consultasData.length - 1; i++) {
+      let dataAntes = new Date(formatarData(consultasData[i].dataDaConsulta))
+      let dataSeguinte = new Date(formatarData(consultasData[i + 1].dataDaConsulta))
+      if (dataSeguinte < dataAntes) {
+        flag = false;
+        let tmp = consultasData[i + 1];
+        consultasData[i + 1] = consultasData[i];
+        consultasData[i] = tmp;
+      }
+    }
+  }
+  return consultasData;
 
-/* 
-  UTilizando o retorno com o MAP
 
-  return consultasData.sort(ordenarData).map(consulta => ({
-    ...consulta,
-    dataDaConsulta: consulta.dataDaConsulta.split('-').reverse().join('/')
-  })) */
 
-  consultasData.sort(ordenarData).forEach(consulta => {
-    consulta.dataDaConsulta = consulta.dataDaConsulta.split('-').reverse().join('/')
-  })
+  // Utilizando o metodo sort()
+  // // Transformar a data em milisegundos para comparar com o maior.
+  // const ordenarData = (a, b) => {
+  //   return new Date(a.dataDaConsulta).getTime() - new Date(b.dataDaConsulta).getTime()
+  // }
 
-  return consultasData
+  // // Converter para padrão americano.
+  // consultasData.forEach(consulta => {
+  //   consulta.dataDaConsulta = consulta.dataDaConsulta.split('/').reverse().join('-')
+  // })
+
+  // /* 
+  //   UTilizando o retorno com o MAP
+
+  //   return consultasData.sort(ordenarData).map(consulta => ({
+  //     ...consulta,
+  //     dataDaConsulta: consulta.dataDaConsulta.split('-').reverse().join('/')
+  //   })) */
+
+  // consultasData.sort(ordenarData).forEach(consulta => {
+  //   consulta.dataDaConsulta = consulta.dataDaConsulta.split('-').reverse().join('/')
+  // })
+
+  // return consultasData
 
 }
 
