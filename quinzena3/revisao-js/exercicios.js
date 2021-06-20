@@ -294,12 +294,19 @@ function ordenaPorData(consultasData) {
     consulta.dataDaConsulta = consulta.dataDaConsulta.split('/').reverse().join('-')
   })
 
+/* 
+  UTilizando o retorno com o MAP
+
+  return consultasData.sort(ordenarData).map(consulta => ({
+    ...consulta,
+    dataDaConsulta: consulta.dataDaConsulta.split('-').reverse().join('/')
+  })) */
+
   consultasData.sort(ordenarData).forEach(consulta => {
     consulta.dataDaConsulta = consulta.dataDaConsulta.split('-').reverse().join('/')
   })
 
   return consultasData
-
 
 }
 
