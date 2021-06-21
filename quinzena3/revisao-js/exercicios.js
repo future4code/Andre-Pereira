@@ -303,14 +303,19 @@ function ordenaPorNome(consultasNome) {
 // EXERCÍCIO 19B
 function ordenaPorData(consultasData) {
 
-  const formatarData = (data) => {
-    const alterarData = data.split('/')
-    let dia = alterarData[0]
-    let mes = alterarData[1]
-    let ano = alterarData[2]
-    let novoFormatoData = [ano, mes, dia]
-    return novoFormatoData
+  function formatarData(dataParametro) {
+    const [dia, mes, ano] = dataParametro.split('/');  
+    return [ano, mes, dia]
   }
+
+  // const formatarData = (data) => {
+  //   const alterarData = data.split('/')
+  //   let dia = alterarData[0]
+  //   let mes = alterarData[1]
+  //   let ano = alterarData[2]
+  //   let novoFormatoData = [ano, mes, dia]
+  //   return novoFormatoData
+  // }
 
   let flag = false;
   for (let i = 0; i < consultasData.length - 1; i++) {
