@@ -1,0 +1,58 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: radial-gradient(circle at 0% 0%, #6aad83 0, #5fae8b 4.17%, #55af94 8.33%, #4aaf9c 12.5%, #3fafa5 16.67%, #35afad 20.83%, #2dafb6 25%, #29aebd 29.17%, #2aadc4 33.33%, #31accb 37.5%, #3babd0 41.67%, #48a9d5 45.83%, #55a7d8 50%, #63a5da 54.17%, #71a2db 58.33%, #7e9fdb 62.5%, #8b9dd9 66.67%, #989ad7 70.83%, #a497d3 75%, #ae93ce 79.17%, #b891c8 83.33%, #c18ec2 87.5%, #c88cba 91.67%, #ce8ab3 95.83%, #d388aa 100%);
+    color: white;
+
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    margin: 0 auto;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+a:hover {
+    color: lightgrey;
+}
+
+
+.cabecalho {
+    display: block;
+    padding-bottom: 20px;
+}
+
+.cabecalho p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 30px;
+
+}
+
+.conteudo-principal p {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.rodape {
+    margin-top: 22%
+}
+
+.rodape img {
+   width: 40px;
+   height: 40px;
+}
