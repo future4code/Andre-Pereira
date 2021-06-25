@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    font-family: 'Roboto', sans-serif
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    color: white;
+    padding: 20px;
+}
+
+
+.cabecalho {
+    background: black;
+    width: 100%;
+}
+
+.cabecalho p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    color: aliceblue;
+}
+
+.cabecalho h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    color: white;
+    padding: 20px;
+}
