@@ -22,6 +22,10 @@
     padding: 16px;
 }
 
+.tabela td {
+    text-align: center;
+}
+
 img {
     padding: 16px;
     width: 150px;
