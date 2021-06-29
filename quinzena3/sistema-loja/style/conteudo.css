@@ -1,0 +1,86 @@
+.conteudo-principal {
+    margin-right: 200px;
+    margin-left: 200px;
+    font-size: 20px;
+    height: 300px;
+}
+
+.titulo {
+    margin-left: 200px;
+    margin-bottom: 10px;
+    font-size: 46px;
+}
+
+
+/* Tabela do Controle de Estoque */
+.tabela tr th {
+    font-size: 24px;
+    padding: 16px;
+}
+
+.tabela tr td {
+    padding: 16px;
+}
+
+.tabela td {
+    text-align: center;
+}
+
+img {
+    padding: 16px;
+    width: 150px;
+    height: 150px;
+}
+
+
+th,
+tr,
+td {
+    border: 1px double black;
+}
+
+/* Configuração do formulario de produto */
+
+.formulario {
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+.formulario div {
+    margin: 10px 0 10px 0;
+}
+
+.formulario label {
+    font-size: 20px;
+}
+
+.formulario input {
+    width: 500px;
+    height: 34px;
+}
+
+#price,
+#quantity {
+    width: 80px;
+}
+
+.form-add input {
+    background-color: black;
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Configuração para lista de funcionarios */
+.lista {
+    margin-left: 180px;
+    font-size: 28px;
+}
+
+.lista li {
+    list-style: square;
+    margin-bottom: 16px;
+    color: gray;
+}

@@ -5,7 +5,10 @@ function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
 }
 ~~~~
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4536c2abc05b977cf46659e9612c91487c6f4f01
 ### Atividade 2
 ~~~~javascript
 function calculaPrecoTotal(quantidade) {
@@ -17,4 +20,8 @@ if(quantidade >= 12){
   }
 quantidade
 }
+<<<<<<< HEAD
 ~~~~
+=======
+~~~~
+>>>>>>> 4536c2abc05b977cf46659e9612c91487c6f4f01
