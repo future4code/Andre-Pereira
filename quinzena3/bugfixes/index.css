@@ -115,7 +115,6 @@ div:last-child {
 
 .table td button:hover {
     background-color: #cea903
-
 }
 
 table {
@@ -141,11 +140,20 @@ td button {
     margin-top: 20px;
     height: 100px;
 }
- .icone {
-     width: 20px;
-     height: 20px;
-     background: white;
- }
+
+.container-do-search input {
+    border-style: none;
+    border-bottom: 2px solid black;
+    outline: 0;
+
+
+}
+
+.icone {
+    width: 20px;
+    height: 20px;
+    background: white;
+}
 
 #back-button {
     background-color: white;
