@@ -164,6 +164,16 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin-top:150px;
+}
+
+.voltar {
+    text-align: center;
+}
+
+.voltar button a {
+    text-decoration: none;
+    color: black;
 }
 
 #back-button:hover {
