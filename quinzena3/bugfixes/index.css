@@ -102,8 +102,16 @@ div:last-child {
     text-align: center;
 }
 
+.table {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
 table {
     width: 60%;
+
+ 
 }
 
 td button {
