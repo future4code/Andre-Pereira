@@ -108,6 +108,16 @@ div:last-child {
     justify-content: center;
 }
 
+.table td button:active {
+    color: white;
+
+}
+
+.table td button:hover {
+    background-color: #cea903
+
+}
+
 table {
     width: 60%;
 
