@@ -33,20 +33,39 @@ header {
 }
 
 /* Estilização Barra de navegação */
-.barra {
+img {
+    width: 30px;
+    height: 30px;
+}
+
+ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 18%;
-    height: 86vh;
+    margin: 10px;
+}
+
+li {
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: rgb(165, 151, 151);
+}
+
+.barra {
     background-color: #f2d0e0;
+    position: fixed;
+    height: 100%;
+    width: 20%;
 }
 
-.barra li {
-    justify-content: space-between;
-}
+/* Estilização Conteúdo */
 
-.barra ul li a img {
-    width: 24px;
-    height: 24px;
-}
+
+
