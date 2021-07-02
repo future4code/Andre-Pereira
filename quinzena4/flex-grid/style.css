@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: palevioletred;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo button {
+    padding: 8px;
+    margin: 12px;
+}
+
+.confeitaria {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 24px;
+    height: 24px;
+    padding: 16px;
+}
