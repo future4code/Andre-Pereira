@@ -3,8 +3,10 @@
     padding: 0;
 }
 
+/* Estilização Header */
+
 header {
-    background-color: palevioletred;
+    background-color: mediumvioletred;
     width: 100%;
 }
 
@@ -15,8 +17,8 @@ header {
 }
 
 .logo button {
-    padding: 8px;
-    margin: 12px;
+    padding: 4px 16px 4px 16px;
+    margin: 18px;
 }
 
 .confeitaria {
@@ -28,4 +30,23 @@ header {
     width: 24px;
     height: 24px;
     padding: 16px;
+}
+
+/* Estilização Barra de navegação */
+.barra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18%;
+    height: 86vh;
+    background-color: #f2d0e0;
+}
+
+.barra li {
+    justify-content: space-between;
+}
+
+.barra ul li a img {
+    width: 24px;
+    height: 24px;
 }
