@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 1fr 1fr 1fr 1fr 60px;
+    grid-template-areas: "header header header header"
+        "main main main main"
+        "footer footer footer footer";
+}
+
+header {
+    background-color: rgb(231, 186, 186);
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+header input {
+    padding: 10px 40px 10px 10px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    padding: 20px;
+}
