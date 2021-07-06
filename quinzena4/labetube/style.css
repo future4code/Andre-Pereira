@@ -5,9 +5,10 @@
 
 body {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 100px 1fr 1fr 1fr 1fr 60px;
+    grid-template-columns: auto;
+    grid-template-rows: 100px 268px 268px 60px;
     grid-template-areas: "header header header header"
+        "main main main main"
         "main main main main"
         "footer footer footer footer";
 }
@@ -35,4 +36,46 @@ header input {
     width: 80px;
     height: 80px;
     padding: 20px;
+}
+
+.logo h2 {
+    color: red
+}
+
+/* Estilização da Main - Videos */
+main{
+    display: grid;
+    grid-area: main;
+    grid-template-columns: repeat(4, 25%);
+}
+
+.video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.video video {
+    width: 300px;
+    height: 200px;
+}
+
+
+/* Estilização do Footer */
+
+footer{
+    display: grid;
+    grid-area: footer;
+    text-align: center;
+    background-color: rgb(231, 186, 186) ;
+}
+
+footer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: red;
 }
