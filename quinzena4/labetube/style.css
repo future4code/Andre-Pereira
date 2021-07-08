@@ -79,3 +79,47 @@ footer p {
     font-size: 24px;
     color: red;
 }
+
+/* Estilização Mobile */
+@media (min-width: 320px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+
+    }
+
+    header input {
+        padding: auto;
+        margin: 20px;
+        border-radius: 10px;
+    }
+
+    
+    .logo img {
+        width: 54px;
+        height: 54px;
+        padding: 36px;
+    }
+
+    .logo h2 {
+        display: none;
+    }
+
+    .logo input {
+       padding:0;
+    }
+
+    footer {
+        display: none
+    }
+    
+    
+
+}
