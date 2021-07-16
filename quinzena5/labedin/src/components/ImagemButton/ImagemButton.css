@@ -1,0 +1,24 @@
+.image-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 250px;
+    padding: 20px;
+    margin: 10px auto;
+}
+
+.image-button-container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 20px;
+    color: rgb(26, 22, 22);
+
+}
+
+.image-button-container a img {
+    width: 30px;
+    margin-right: 10px;
+}
