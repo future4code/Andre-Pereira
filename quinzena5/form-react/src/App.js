@@ -1,45 +1,58 @@
-import React, { Component } from "react";
-import "./App.css";
-import Etapa1 from "./components/Etapa1";
-import Etapa2 from "./components/Etapa2";
-import Etapa3 from "./components/Etapa3";
-import Final from "./components/Final";
+import React from 'react';
+import './App.css';
+import { Etapa1 } from './components/Etapa1'
+import { Etapa2 } from './components/Etapa2'
+import { Etapa3 } from './components/Etapa3'
+import { EtapaFinal } from './components/EtapaFinal'
 
-class App extends Component {
-  state = {
-    etapa: 1,
-  };
 
-  visualizar = () => {
-    switch (this.state.etapa) {
-      case 1:
-        return <Etapa1 />;
-      case 2:
-        return <Etapa2 />;
-      case 3:
-        return <Etapa3 />;
-      case 4:
-        return <Final />;
-      default:
-        return <Final />;
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      etapaAtual: "1"
     }
-  };
+  }
 
-  proximo = () => {
-    this.setState({ etapa: this.state.etapa + 1 });
-  };
-  render() {
+  aoTerminarEtapa1 = (resultado) => {
+    if(resultado.escolaridade) {
+      if(resultado.escolaridade.toLowerCase().indexOf("superior") !== -1) {
+        this.setState({ etapaAtual: "2" })
+      } else {
+        this.setState({ etapaAtual: "3" })
+      }
+    }
+  }
+
+  aoTerminarEtapa2Ou3 = () => {
+    this.setState({ etapaAtual: "final" })
+  }
+
+  renderEtapaAtual = () => {
+    switch(this.state.etapaAtual){ 
+      case "1":
+        return (<Etapa1 aoClicarEmEnviar = { this.aoTerminarEtapa1 }/>)
+      case "2":
+        return (<Etapa2 aoClicarEmEnviar = { this.aoTerminarEtapa2Ou3 }/>)
+      case "3":
+        return (<Etapa3 aoClicarEmEnviar = { this.aoTerminarEtapa2Ou3 }/>)
+      case "final":
+        return (<EtapaFinal/>)
+      default:
+        return (<Etapa1 aoClicarEmEnviar = { this.aoTerminarEtapa1 }/>)
+    }
+  }
+
+  render = () => {
     return (
-      <div>
-        <div>{this.visualizar()}</div>
-        <div>
-          {this.state.etapa !== 4 && (
-            <button onClick={this.proximo}>Próxima página</button>
-          )}
-        </div>
+      <div className="App">
+        {
+          this.renderEtapaAtual()
+        }
       </div>
     );
   }
+
 }
 
 export default App;

@@ -1,37 +1,69 @@
-import React, { Component } from "react";
+import React from 'react'
+import { Pergunta } from './Pergunta'
 
-class Etapa1 extends Component {
-  render() {
+
+export class Etapa1 extends React.Component {
+  constructor(props) {
+    super(props)
+    this.nome = ""
+    this.idade = ""
+    this.email = ""
+    this.escolaridade = ""
+  }
+
+  atualizaNome = (nome) => { this.nome = nome }
+  atualizaIdade = (idade) => { this.idade = idade }
+  atualizaEmail = (email) => { this.email = email }
+  atualizaEscolaridade = (escolaridade) => {
+    console.log(escolaridade)
+    this.escolaridade = escolaridade
+  }
+
+  aoClicarNoProximo = () => {
+    if (this.props.aoClicarEmEnviar) {
+      this.props.aoClicarEmEnviar({
+        nome: this.nome,
+        idade: this.idade,
+        email: this.email,
+        escolaridade: this.escolaridade || "Ensino Médio Incompleto"
+      })
+    }
+  }
+
+  render = () => {
     return (
       <div>
-        <h2>Etapa 1 - Dados Gerais</h2>
-        <input
-          value={this.props.nome}
-          type="text"
-          placeholder="Digite seu nome completo"
-          required
+        <h3> <b> ETAPA 1 - DADOS GERAIS </b> </h3>
+        <Pergunta
+          onChange={this.atualizaNome}
+          titulo={"1. Qual seu nome?"}
         />
-        <input
-          value={this.props.idade}
-          type="number"
-          placeholder="Digite sua idade"
+        <br />
+        <Pergunta
+          onChange={this.atualizaIdade}
+          titulo={"2. Qual sua idade?"}
         />
-        <input
-          value={this.props.email}
-          type="email"
-          placeholder="Digite seu e-mail"
+        <br />
+        <Pergunta
+          onChange={this.atualizaEmail}
+          titulo={"3. Qual seu email?"}
         />
-        <label>Qual grau de escolaridade</label>
-        <select>
-          <option value="0">-</option>
-          <option value="1">Ensino Médio Incompleto</option>
-          <option value="2">Ensino Médio Completo</option>
-          <option value="3">Superior Incompleto</option>
-          <option value="4">Superior Completo</option>
-        </select>
+        <br />
+        <Pergunta
+          onChange={this.atualizaEscolaridade}
+          titulo={"4. Qual sua escolaridade?"}
+          tipo={"selecao"}
+          opcoes={
+            ["Ensino Médio Incompleto",
+              "Ensino Médio Completo",
+              "Ensino Superior Incompleto",
+              "Ensino Superior Completo"]
+          }
+        />
+        <br />
+        <button onClick={this.aoClicarNoProximo}> Continuar </button>
       </div>
-    );
+
+    )
   }
 }
-
-export default Etapa1;

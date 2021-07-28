@@ -1,25 +1,48 @@
-import React, { Component } from "react";
+import React from 'react'
+import { Pergunta } from './Pergunta'
 
-class Etapa3 extends Component {
-  render() {
+
+export class Etapa3 extends React.Component {
+  constructor(props) {
+    super(props)
+    this.terminarEnsinoSuperior = ""
+    this.cursoComplementar = ""
+  }
+
+  atualizarTerminarEnsinoSuperior = (terminarEnsinoSuperior) => { this.terminarEnsinoSuperior = terminarEnsinoSuperior }
+  atualizarCursoComplementar = (cursoComplementar) => { this.cursoComplementar = cursoComplementar }
+
+  aoClicarNoProximo = () => {
+    if(this.props.aoClicarEmEnviar) {
+      this.props.aoClicarEmEnviar({
+        terminarEnsinoSuperior: this.terminarEnsinoSuperior,
+        cursoComplementar: this.cursoComplementar
+      })
+    }
+  }
+
+  render = () => {
     return (
       <div>
-        <h1>Etapa 3 - Ensino Superior Incompleto</h1>
-        <input
-          value={this.props.graduacaoIncompleta}
-          type="text"
-          placeholder="Porque não terminou a graduação?"
+        <h3> <b> ETAPA 3 - INFORMAÇÕES GERAIS DE ENSINO </b> </h3>
+        <Pergunta
+          onChange={ this.atualizarTerminarEnsinoSuperior }
+          titulo={ "5. Por que você não terminou um curso de graduação?" }
         />
-        <label>Você fez algum curso complementar?</label>
-        <select>
-          <option value="0">Não fiz curso complementar</option>
-          <option value="1">Curso técnico</option>
-          <option value="1">Curso técnico</option>
-          <option value="2">Curso de inglês</option>
-        </select>
+        <br/>
+        <Pergunta
+          onChange={ this.atualizarCursoComplementar }
+          titulo={"6. Você fez algum curso complementar?"}
+          tipo={"selecao"}
+          opcoes={
+            ["Curso técnico",
+              "Cursos de inglês",
+              "Não fiz nem curso complementar"]
+          }
+        />
+        <br/>
+        <button onClick = { this.aoClicarNoProximo }> Finalizar </button>
       </div>
-    );
+    )
   }
 }
-
-export default Etapa3;
