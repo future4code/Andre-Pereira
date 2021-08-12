@@ -81,7 +81,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Thunderstruck\",\r\n    \"artist\": \"AC/DC\",\r\n    \"url\": \"https://open.spotify.com/track/57bgtoPSgt236HzfBOd8kj?si=62e2076c79d644cb\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Sultans Of Swing\",\r\n    \"artist\": \"Dire Straits\",\r\n    \"url\": \"https://open.spotify.com/track/37Tmv4NnfQeb0ZgUC4fOJj?si=d774217f56424400\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -198,6 +198,90 @@
 						{
 							"key": "name",
 							"value": "Rock"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePlaylist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "andre-pereira-johnson",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "546c2ed3-b7fe-4dca-8ce2-43c6ad64bacc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeTrackFromPlaylist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "andre-pereira-johnson",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId?playlistId=aaaec5b8-8462-48e4-bbbb-5884957abf83&trackId=973ac3c0-32f3-46f2-951c-e03ef8ec3aa6",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks",
+						":trackId"
+					],
+					"query": [
+						{
+							"key": "playlistId",
+							"value": "aaaec5b8-8462-48e4-bbbb-5884957abf83"
+						},
+						{
+							"key": "trackId",
+							"value": "973ac3c0-32f3-46f2-951c-e03ef8ec3aa6"
+						}
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": null
+						},
+						{
+							"key": "trackId",
+							"value": null
 						}
 					]
 				}
