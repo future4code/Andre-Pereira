@@ -54,16 +54,19 @@ class App extends Component {
       });
   };
 
-  removerUsuario = () => {
+  removerUsuario = (id) => {
     return axios
       .delete(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/:id",
+        `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
         {
-          id: this.state.usuarios.id,
+          headers: { Authorization: "andre-pereira-johnson" },
         }
       )
       .then(() => {
-        alert("Usúario removido com sucesso");
+        this.exibirUsuarios().then((res) => {
+          alert("Usúario removido com sucesso");
+          this.setState({ usuarios: res.data });
+        });
       });
   };
 
