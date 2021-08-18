@@ -1,53 +1,61 @@
 /* eslint-disable default-case */
 import React, { Component } from "react";
-import Header from "./components/Header";
+import Main from "./components/Main";
+import Cadastro from "./components/Cadastro";
+import Playlist from "./components/Playlist";
+import styled from "styled-components";
 import "./App.css";
+import Header from "./components/Header";
+
+const Pagina = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 
 class App extends Component {
   state = {
-    tela: "cadastroPlaylist",
+    tela: "inicial",
+  };
+
+  escolherTelas = () => {
+    switch (this.state.tela) {
+      case "inicial":
+        return <Main irCadastro={this.irCadastro} irPlaylist={this.irPlaylist} />;
+      case "cadastro":
+        return (
+          <Cadastro irInicio={this.irInicio}  />
+        );
+      case "playlist":
+        return <Playlist irInicio={this.irInicio}/>;
+      default:
+        return (
+          <Pagina>
+            <h1>Página não encontrada</h1>
+          </Pagina>
+        );
+    }
+  };
+
+  irInicio = () => {
+    this.setState({ tela: "inicial" });
   };
 
   irCadastro = () => {
-    switch (this.state.tela) {
-      case "cadastroPlaylist":
-        return alert("Página não encontrada");
-      case "inicial":
-        return <App />;
-      default:
-        return <div>Página não encontrada</div>;
-    }
+    this.setState({ tela: "cadastro" });
+  };
+
+  irPlaylist = () => {
+    this.setState({ tela: "playlist" });
+    console.log("indo para playlist");
   };
 
   render() {
     return (
       <div>
         <Header />
-        <div className="showcase">
-          <div className="showcase-container">
-            <h2>Música para todos</h2>
-            <p>
-              Milhões de músicas à sua escolha. E nem precisa de cartão de
-              crédito.
-            </p>
-            <div className="buttons">
-              <button
-                onClick={this.irCadastro}
-                value={this.state.tela}
-                className="btn-primary"
-              >
-                Iniciar Cadastro
-              </button>
-              <button
-                onClick={this.irCadastro}
-                value={this.state.tela}
-                className="btn-primary"
-              >
-                Playlists
-              </button>
-            </div>
-          </div>
-        </div>
+        {this.escolherTelas()}
       </div>
     );
   }
