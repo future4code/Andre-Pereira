@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Header.css";
+import Logo from '../image/logo.png'
 
 class Header extends Component {
   render() {
@@ -7,7 +8,7 @@ class Header extends Component {
       <div className="navbar">
         <div className="navbar-container">
           <img
-            src="https://image.flaticon.com/icons/png/512/1946/1946479.png"
+            src={Logo}
             alt="Logo"
             className="logo"
           />
