@@ -106,9 +106,7 @@ class Playlist extends React.Component {
       return (
         <div>
           {`NOME: ${musica.name} - ARTISTA: ${musica.artist}`}
-          <Tracks autoplay="autoplay" controls="controls">
-            {musica.url}
-          </Tracks>
+          <Tracks src={musica.url} autoplay="autoplay" controls="controls" />
         </div>
       );
     });
