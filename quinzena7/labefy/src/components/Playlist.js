@@ -45,7 +45,9 @@ const CardPlaylist = styled.div`
 
 const Tracks = styled.audio`
   display: flex;
-  height: 60px;
+  height: 32px;
+  margin-bottom: 12px;
+  border-radius: 8px;
   width: 450px;
 `;
 
@@ -95,7 +97,10 @@ class Playlist extends React.Component {
       const res = await axios.get(url, {
         headers: { Authorization: "andre-pereira-johnson" },
       });
-      this.setState({ track: res.data.result.tracks });
+      this.setState({
+        track: res.data.result.tracks,
+        idPlaylistSelecionada: idPlaylist,
+      });
     } catch (err) {
       alert(err.message);
     }
@@ -120,7 +125,11 @@ class Playlist extends React.Component {
               x
             </BotaoDeletar>
           </CardPlaylist>
-          <div className="showcase-container">{musicas}</div>
+          {this.state.idPlaylistSelecionada === item.id ? (
+            <div className="showcase-container">{musicas}</div>
+          ) : (
+            ""
+          )}
         </div>
       );
     });
