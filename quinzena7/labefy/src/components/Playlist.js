@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-restricted-globals */
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
+import Adicionar from "../image/add.png";
+import Deletar from "../image/delete.png";
 
 const BotaoVoltar = styled.button`
   background: rgba(0, 0, 0, 0.8);
@@ -17,11 +20,22 @@ const BotaoDeletar = styled.button`
   border-radius: 4px;
   color: black;
   padding: 8px;
-  text-align: center;
-  text-decoration: none;
   font-size: 12px;
   &:hover {
-    color: white;
+    background: #f44500;
+    cursor: pointer;
+  }
+`;
+
+const BotaoAdicionar = styled.button`
+  background-color: #1ed760;
+  border: none;
+  border-radius: 4px;
+  color: black;
+  padding: 8px;
+  margin: 0 8px;
+  &:hover {
+    background: #1db958;
     cursor: pointer;
   }
 `;
@@ -55,6 +69,7 @@ class Playlist extends React.Component {
   state = {
     lista: [],
     track: [],
+    name: "",
   };
 
   componentDidMount() {
@@ -91,6 +106,14 @@ class Playlist extends React.Component {
     }
   };
 
+  onChangeInput = (event) => {
+    this.setState({ nomeMusica: event.target.value });
+  };
+
+  adicionarTrack = (idPlaylist) => {
+    alert(`ID da Playlist: ${idPlaylist}, Implementação pendentes`);
+  };
+
   exibirTracks = async (idPlaylist) => {
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${idPlaylist}/tracks`;
     try {
@@ -121,9 +144,17 @@ class Playlist extends React.Component {
         <div>
           <CardPlaylist onClick={() => this.exibirTracks(item.id)}>
             {item.name}
-            <BotaoDeletar onClick={() => this.deletarPlaylist(item.id)}>
-              x
-            </BotaoDeletar>
+            <div className="botoes-playlist">
+              <BotaoAdicionar
+                onChange={this.onChangeInput}
+                onClick={() => this.adicionarTrack(item.id)}
+              >
+                <img width="12px" src={Adicionar} />
+              </BotaoAdicionar>
+              <BotaoDeletar onClick={() => this.deletarPlaylist(item.id)}>
+                <img width="12px" src={Deletar} />
+              </BotaoDeletar>
+            </div>
           </CardPlaylist>
           {this.state.idPlaylistSelecionada === item.id ? (
             <div className="showcase-container">{musicas}</div>

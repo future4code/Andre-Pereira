@@ -44,3 +44,7 @@
 .btn-primary:hover {
   background: #1ed760;
 }
+
+.botoes-playlist {
+  display: flex;
+}
