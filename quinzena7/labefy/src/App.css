@@ -47,8 +47,6 @@
 
 .botoes-playlist {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
 }
 
 .div-music {

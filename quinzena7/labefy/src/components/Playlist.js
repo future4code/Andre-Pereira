@@ -39,7 +39,7 @@ const BotaoAdicionar = styled.button`
   border-radius: 4px;
   color: black;
   padding: 8px;
-  margin: 0 8px;
+  margin-left: 12px;
   &:hover {
     background: #1db958;
     cursor: pointer;
@@ -78,8 +78,8 @@ const Inputs = styled.input`
 
 const Tracks = styled.audio`
   display: flex;
-  height: 32px;
-  margin-bottom: 12px;
+  height: 36px;
+  margin-bottom: 8px;
   border-radius: 8px;
   width: 450px;
 `;
@@ -145,8 +145,23 @@ class Playlist extends React.Component {
       : this.setState({ exibir: idPlaylist });
   };
 
-  adicionarMusica = () => {
-    alert("Criando música");
+  adicionarMusica = async (idPLaylist) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${idPLaylist}/tracks`;
+    const body = {
+      name: this.state.nomeMusica,
+      artist: this.state.nomeArtista,
+      url: this.state.urlMusica,
+    };
+    try {
+      const res = await axios.post(url, body, {
+        headers: { Authorization: "andre-pereira-johnson" },
+      });
+      this.setState({ nomeMusica: "", nomeArtista: "", urlMusica: "" });
+      alert(`Adicionado na Playlist com sucessso`)
+      this.adicionarTrack();
+    } catch (err) {
+      alert(err.message);
+    }
   };
 
   exibirTracks = async (idPlaylist) => {
@@ -194,7 +209,7 @@ class Playlist extends React.Component {
             <DivInputs>
               {this.state.exibir === item.id ? (
                 <Inputs
-                  value={this.state.nomeInput}
+                  value={this.state.nomeMusica}
                   onChange={this.onChangeInputNome}
                   placeholder="Nome da sua música"
                 />
@@ -219,7 +234,7 @@ class Playlist extends React.Component {
                   />
                   <div className="div-music">
                     <button
-                      onClick={this.adicionarMusica}
+                      onClick={() => this.adicionarMusica(item.id)}
                       className="btn-music"
                     >
                       Salvar
