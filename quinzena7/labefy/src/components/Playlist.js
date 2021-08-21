@@ -6,6 +6,12 @@ import axios from "axios";
 import Adicionar from "../image/add.png";
 import Deletar from "../image/delete.png";
 
+const NomeMusica = styled.p`
+  font-size: 16px;
+  display: inline-block;
+  padding-right: 12px;
+`;
+
 const BotaoVoltar = styled.button`
   background: rgba(0, 0, 0, 0.8);
   color: white;
@@ -20,7 +26,7 @@ const BotaoDeletar = styled.button`
   border-radius: 4px;
   color: black;
   padding: 8px;
-  font-size: 12px;
+  margin: 0 8px;
   &:hover {
     background: #f44500;
     cursor: pointer;
@@ -46,15 +52,28 @@ const CardPlaylist = styled.div`
   text-align: center;
   border: 1px solid black;
   border-radius: 30px;
-  padding: 30px;
-  margin: 10px;
+  padding: 10px;
+  margin: 8px;
   width: 500px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   cursor: pointer;
   &:active {
     background-color: black;
   }
+`;
+
+const DivInputs = styled.div`
+  display: block;
+`;
+
+const Inputs = styled.input`
+  border: none;
+  border-radius: 50px;
+  padding: 8px;
+  margin: 8px 0;
+  width: 80%;
 `;
 
 const Tracks = styled.audio`
@@ -69,7 +88,9 @@ class Playlist extends React.Component {
   state = {
     lista: [],
     track: [],
-    name: "",
+    nomeMusica: "",
+    nomeArtista: "",
+    urlMusica: "",
   };
 
   componentDidMount() {
@@ -106,12 +127,26 @@ class Playlist extends React.Component {
     }
   };
 
-  onChangeInput = (event) => {
+  onChangeInputNome = (event) => {
     this.setState({ nomeMusica: event.target.value });
   };
 
+  onChangeInputArtista = (event) => {
+    this.setState({ nomeArtista: event.target.value });
+  };
+
+  onChangeInputUrl = (event) => {
+    this.setState({ urlMusica: event.target.value });
+  };
+
   adicionarTrack = (idPlaylist) => {
-    alert(`ID da Playlist: ${idPlaylist}, Implementação pendentes`);
+    idPlaylist === this.state.exibir
+      ? this.setState({ exibir: true }) && this.setState({ exibirSalvar: true })
+      : this.setState({ exibir: idPlaylist });
+  };
+
+  adicionarMusica = () => {
+    alert("Criando música");
   };
 
   exibirTracks = async (idPlaylist) => {
@@ -133,7 +168,8 @@ class Playlist extends React.Component {
     const musicas = this.state.track.map((musica) => {
       return (
         <div>
-          {`NOME: ${musica.name} - ARTISTA: ${musica.artist}`}
+          <NomeMusica>{musica.name}</NomeMusica>
+          {`(${musica.artist})`}
           <Tracks src={musica.url} autoplay="autoplay" controls="controls" />
         </div>
       );
@@ -143,10 +179,10 @@ class Playlist extends React.Component {
       return (
         <div>
           <CardPlaylist onClick={() => this.exibirTracks(item.id)}>
-            {item.name}
+            <p className="nome-playlist">{item.name}</p>
             <div className="botoes-playlist">
               <BotaoAdicionar
-                onChange={this.onChangeInput}
+                onChange={this.onChangeInputNome}
                 onClick={() => this.adicionarTrack(item.id)}
               >
                 <img width="12px" src={Adicionar} />
@@ -155,6 +191,45 @@ class Playlist extends React.Component {
                 <img width="12px" src={Deletar} />
               </BotaoDeletar>
             </div>
+            <DivInputs>
+              {this.state.exibir === item.id ? (
+                <Inputs
+                  value={this.state.nomeInput}
+                  onChange={this.onChangeInputNome}
+                  placeholder="Nome da sua música"
+                />
+              ) : (
+                ""
+              )}
+              {this.state.exibir === item.id ? (
+                <Inputs
+                  value={this.state.nomeArtista}
+                  onChange={this.onChangeInputArtista}
+                  placeholder="Nome do artista"
+                />
+              ) : (
+                ""
+              )}
+              {this.state.exibir === item.id ? (
+                <>
+                  <Inputs
+                    value={this.state.urlMusica}
+                    onChange={this.onChangeInputUrl}
+                    placeholder="Url do servidor de música"
+                  />
+                  <div className="div-music">
+                    <button
+                      onClick={this.adicionarMusica}
+                      className="btn-music"
+                    >
+                      Salvar
+                    </button>
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
+            </DivInputs>
           </CardPlaylist>
           {this.state.idPlaylistSelecionada === item.id ? (
             <div className="showcase-container">{musicas}</div>
