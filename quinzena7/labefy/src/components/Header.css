@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 14vh
+}
+
+.navbar-container {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 0;
+}
+
+.logo {
+  height: 120px;
+  width: auto;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  font-weight: bold;
+}
+
+ul li {
+  padding: 0 20px;
+}
