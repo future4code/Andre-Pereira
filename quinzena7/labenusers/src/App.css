@@ -1,0 +1,45 @@
+div {
+  display: block;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.users {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.users button {
+  background: red;
+  padding: 2px 8px;
+  color: white;
+  border-radius: 4px;
+  margin-left: 16px;
+}
+
+.users button:hover {
+  background: rgb(212, 105, 105);
+}
+
+input {
+  padding: 12px;
+  margin: 8px;
+  width: 200px;
+  border-radius: 12px;
+}
+
+button {
+  background: yellow;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+button:hover {
+  background: rgb(207, 207, 127);
+  cursor: pointer;
+  border-radius: 10px;
+}
