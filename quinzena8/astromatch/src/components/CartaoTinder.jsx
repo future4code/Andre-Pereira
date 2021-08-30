@@ -23,9 +23,14 @@ const CartaoTinder = () => {
     <div className="cartao__tinder">
       <div className="cartaoTinder__container">
         <CartaoPessoa className="swipe" preventSwipe={["up", "down"]}>
-            <div className="cartao" style={{backgroundImage: `url(${pessoa.photo})`}}>
-                <h2>{pessoa.name}</h2>
-            </div>
+          <div
+            className="cartao"
+            style={{ backgroundImage: `url(${pessoa.photo})` }}
+          >
+            <h2>{pessoa.name}</h2>
+            <h3>{`Idade: ${pessoa.age} anos`}</h3>
+            <h4>{`"${pessoa.bio}"`}</h4>
+          </div>
         </CartaoPessoa>
       </div>
     </div>

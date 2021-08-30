@@ -1,9 +1,9 @@
 .cartao {
   position: relative;
   width: 600px;
-  padding: 20px;
+  padding: 16px;
   max-width: 30vw;
-  height: 60vh;
+  height: 68vh;
   border-radius: 20px;
   background-size: cover;
   background-position: center;
@@ -11,17 +11,30 @@
 }
 
 .cartao h2 {
+  position: absolute;
+  bottom: 96px;
+  color: white;
+}
+
+.cartao h3 {
     position: absolute;
-    bottom: 10px;
+    bottom: 68px;
     color: white;
 }
 
+.cartao h4 {
+    position: absolute;
+    bottom: 18px;
+    color: white;
+    margin-right: 12px;
+}
+
 .cartaoTinder__container {
-    display: flex;
-    justify-content: center;
-    margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
 }
 
 .swipe {
-    position: absolute
+  position: absolute;
 }
