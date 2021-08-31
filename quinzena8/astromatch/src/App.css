@@ -1,0 +1,56 @@
+.cartao {
+  position: relative;
+  width: 30vw;
+  padding: 16px;
+  height: 68vh;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 24px 0 gray;
+}
+
+.cartao h2 {
+  position: absolute;
+  bottom: 96px;
+  color: white;
+}
+
+.cartao h3 {
+    position: absolute;
+    bottom: 68px;
+    color: white;
+}
+
+.cartao h4 {
+    position: absolute;
+    bottom: 18px;
+    color: white;
+    margin-right: 12px;
+}
+
+.cartaoTinder__container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.swipe {
+  position: absolute;
+}
+
+.matches {
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+}
+
+.matches img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 20px 36px;
+}
+
+.matches h3 {
+  margin-left: 20px;
+}

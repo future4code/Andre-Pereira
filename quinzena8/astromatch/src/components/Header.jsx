@@ -3,28 +3,35 @@ import "./Header.css";
 import PersonIcon from "@material-ui/icons/Person";
 import ChatIcon from "@material-ui/icons/Chat";
 import { IconButton } from "@material-ui/core";
-import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
+  const enviarChat = () => {
+    alert("...aguarde em breve, implementação em desenvolvimento");
+  };
+
   return (
     <div className="header">
-      <Link to="/match">
-        <IconButton>
-          <PersonIcon className="header__icon" fontSize="large" />
-        </IconButton>
-      </Link>
-      <Link to="/">
+      <IconButton>
+        <PersonIcon
+          onClick={props.irTelaMatch}
+          className="header__icon"
+          fontSize="large"
+        />
+      </IconButton>
+      <IconButton onClick={props.voltarInicio}>
         <img
           className="header__logo"
           src="https://image.flaticon.com/icons/png/512/408/408790.png"
           alt="Logo Astromatch"
         />
-      </Link>
-      <Link to="/chats">
-        <IconButton>
-          <ChatIcon className="header__icon" fontSize="large" />
-        </IconButton>
-      </Link>
+      </IconButton>
+      <IconButton>
+        <ChatIcon
+          onClick={enviarChat}
+          className="header__icon"
+          fontSize="large"
+        />
+      </IconButton>
     </div>
   );
 };

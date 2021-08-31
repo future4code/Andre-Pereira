@@ -6,11 +6,11 @@
 }
 
 .header__logo {
-    height: 56px;
+    height: 56px ;
     object-fit: contain;
 }
 
 .header__icon {
     padding: 12px;
-    margin: 0 24px;
+    margin: 0 8px;
 }
