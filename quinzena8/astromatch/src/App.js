@@ -6,29 +6,62 @@ import axios from "axios";
 import CartaoPessoa from "react-tinder-card";
 import BotaoSwipe from "./components/BotaoSwipe";
 
-const App = (props) => {
+const App = () => {
   const [paginaEscolhida, setPaginaEscolhida] = useState("inicio");
   const [pessoaEscolhida, setPessoaEscolhida] = useState([]);
+  const [pessoa, setPessoa] = useState([]);
+  const [atualizador, setAtualizador] = useState(false);
 
-  const [pessoa, setPessoa] = useState([
-    useEffect(() => {
-      axios
-        .get(
-          "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/person"
-        )
-        .then((response) => {
-          setPessoa(response.data.profile);
-        })
-        .catch((err) => {
-          alert(err.message);
-        });
-    }, []),
-  ]);
+  useEffect(() => {
+    console.log("entrou");
+    axios
+      .get(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/person"
+      )
+      .then((response) => {
+        console.log("Passou");
+        setPessoa(response.data.profile);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  }, [atualizador]);
+
+  const selecionarPessoa = (id) => {
+    axios
+      .post(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/choose-person",
+        {
+          id: pessoa.id,
+          choice: true,
+        }
+      )
+      .then((res) => {
+        setAtualizador(!atualizador);
+        alert(`Você deu Match em ${pessoa.name}`);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+
+  const removerPessoa = (id) => {
+    axios.post(
+      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/choose-person",
+      {
+        id: pessoa.id,
+        choice: false,
+      }
+    ).then(response => {
+      setAtualizador(!atualizador)
+      alert(`Acho que você não gostou do(a) ${pessoa.name}`)
+    })
+  };
 
   const irTelaMatch = async () => {
     try {
       const response = await axios.get(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/gabriel/matches"
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/matches"
       );
       setPaginaEscolhida("matches");
       setPessoaEscolhida(response.data.matches);
@@ -39,6 +72,22 @@ const App = (props) => {
 
   const voltarInicio = () => {
     setPaginaEscolhida("inicio");
+  };
+
+  const reiniciarMatches = async () => {
+    // eslint-disable-next-line no-restricted-globals
+    if(confirm("Voce deseja reiniciar os seus Matches?")){
+      try {
+        const res = await axios.put(
+          "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/clear"
+        );
+        setAtualizador(!atualizador);
+        alert(`Você acabou de reiniciar os matches com ${res.data.message}`);
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+    
   };
 
   return (
@@ -60,7 +109,11 @@ const App = (props) => {
               </CartaoPessoa>
             </div>
           </div>
-          <BotaoSwipe />
+          <BotaoSwipe
+            selecionarPessoa={selecionarPessoa}
+            reiniciarMatches={reiniciarMatches}
+            removerPessoa={removerPessoa}
+          />
         </>
       ) : (
         pessoaEscolhida.map((cadaPessoa) => {
