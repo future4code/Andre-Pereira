@@ -5,26 +5,29 @@ import Header from "./components/Header";
 import axios from "axios";
 import CartaoPessoa from "react-tinder-card";
 import BotaoSwipe from "./components/BotaoSwipe";
+import { Spinner } from 'react-bootstrap'
+
 
 const App = () => {
   const [paginaEscolhida, setPaginaEscolhida] = useState("inicio");
   const [pessoaEscolhida, setPessoaEscolhida] = useState([]);
   const [pessoa, setPessoa] = useState([]);
+  const [loading, setloading] = useState(false)
   const [atualizador, setAtualizador] = useState(false);
 
+  const exibirCrush = async () => {
+    try {
+      setloading(true)
+      const response = await axios.get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/person")
+      setloading(false)
+      setPessoa(response.data.profile)
+    } catch (err) {
+      alert(err.message)
+    }
+  }
+
   useEffect(() => {
-    console.log("entrou");
-    axios
-      .get(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/person"
-      )
-      .then((response) => {
-        console.log("Passou");
-        setPessoa(response.data.profile);
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
+    exibirCrush()
   }, [atualizador]);
 
   const selecionarPessoa = (id) => {
@@ -76,7 +79,7 @@ const App = () => {
 
   const reiniciarMatches = async () => {
     // eslint-disable-next-line no-restricted-globals
-    if(confirm("Voce deseja reiniciar os seus Matches?")){
+    if (confirm("Voce deseja reiniciar os seus Matches?")) {
       try {
         const res = await axios.put(
           "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/clear"
@@ -87,7 +90,7 @@ const App = () => {
         alert(err.message);
       }
     }
-    
+
   };
 
   return (
@@ -105,6 +108,7 @@ const App = () => {
                   <h2>{pessoa.name}</h2>
                   <h3>{`Idade: ${pessoa.age} anos`}</h3>
                   <h4>{`"${pessoa.bio}"`}</h4>
+                  {loading === true ? <Spinner size="lg" animation="border" variant="danger" /> : ""}
                 </div>
               </CartaoPessoa>
             </div>

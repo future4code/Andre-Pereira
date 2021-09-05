@@ -13,19 +13,22 @@
   position: absolute;
   bottom: 96px;
   color: white;
+  font-size: 32px;
 }
 
 .cartao h3 {
-    position: absolute;
-    bottom: 68px;
-    color: white;
+  position: absolute;
+  bottom: 74px;
+  color: white;
+  font-size: 18px;
 }
 
 .cartao h4 {
-    position: absolute;
-    bottom: 18px;
-    color: white;
-    margin-right: 12px;
+  position: absolute;
+  bottom: 18px;
+  color: white;
+  margin-right: 12px;
+  font-size: 16px;
 }
 
 .cartaoTinder__container {
