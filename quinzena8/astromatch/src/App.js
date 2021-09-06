@@ -19,8 +19,8 @@ const App = () => {
     try {
       setloading(true)
       const response = await axios.get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andre-pereira/person")
-      setloading(false)
       setPessoa(response.data.profile)
+      setloading(false)
     } catch (err) {
       alert(err.message)
     }
@@ -108,7 +108,7 @@ const App = () => {
                   <h2>{pessoa.name}</h2>
                   <h3>{`Idade: ${pessoa.age} anos`}</h3>
                   <h4>{`"${pessoa.bio}"`}</h4>
-                  {loading === true ? <Spinner size="lg" animation="border" variant="danger" /> : ""}
+                  {loading === true ? <Spinner animation="border" variant="danger" /> : ""}
                 </div>
               </CartaoPessoa>
             </div>
