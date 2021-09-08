@@ -1,0 +1,30 @@
+.botaoSwipe {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: 2vh;
+  justify-content: center;
+}
+
+.botaoSwipe .MuiIconButton-root {
+  background-color: white;
+  box-shadow: 0 10px 50px 0 black;
+}
+
+.botaoSwipe__replay {
+  padding: 1vw !important;
+  color: orange !important;
+  margin: 0 24px !important;
+}
+
+.botaoSwipe__close {
+  padding: 1vw !important;
+  color: black !important;
+  margin: 0 24px !important;
+}
+
+.botaoSwipe__fav {
+  padding: 1vw !important;
+  color: red !important;
+  margin: 0 24px !important;
+}
