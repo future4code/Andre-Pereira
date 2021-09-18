@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { useForm } from "../hooks/useForm";
+import axios from "axios";
 
 export default function LoginPage() {
   const history = useHistory();
@@ -14,9 +15,22 @@ export default function LoginPage() {
     history.push("/");
   };
 
-  const fazerLogin = () => {
-    console.log(formulario);
-    history.push("/");
+  const fazerLogin = (event) => {
+    event.preventDefault();
+
+    const body = { email: formulario.email, password: formulario.password };
+    axios
+      .post(
+        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/login",
+        body
+      )
+      .then((response) => {
+        localStorage.setItem("token", response.data.token);
+        history.push("/");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
 
   return (
