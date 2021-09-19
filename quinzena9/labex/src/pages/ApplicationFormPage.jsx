@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useForm } from "../hooks/useForm";
+import useForm from "../hooks/useForm";
 import { useHistory } from "react-router";
 import { countries } from "../constants/countries";
 import axios from "axios";
@@ -11,7 +11,7 @@ export default function ApplicationFormPage() {
   useEffect(() => {
     axios
       .get(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/trips"
+        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/andre-pereira-johnson/trips"
       )
       .then((res) => {
         setViagens(res.data.trips);
@@ -21,7 +21,8 @@ export default function ApplicationFormPage() {
       });
   }, []);
 
-  const { formulario, alterarDadosFormulario } = useForm({
+  const { formulario, alterarDadosFormulario, clean } = useForm({
+    id: "",
     name: "",
     age: "",
     applicationText: "",
@@ -32,8 +33,6 @@ export default function ApplicationFormPage() {
   const irInicio = () => {
     history.goBack("/");
   };
-
- 
 
   const enviarFormularios = (id) => {
     id.preventDefault();
@@ -48,19 +47,12 @@ export default function ApplicationFormPage() {
 
     axios
       .post(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/trips/${id}/apply`,
+        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/andre-pereira-johnson/trips/${formulario.id}/apply`,
         body
       )
       .then((response) => {
-        console.log(formulario.country);
         alert("Dados enviado com sucesso");
-        alterarDadosFormulario({
-          name: "",
-          age: "",
-          applicationText: "",
-          profession: "",
-          country: "",
-        });
+       clean()
       });
   };
 
@@ -68,10 +60,20 @@ export default function ApplicationFormPage() {
     <>
       <p>Preencha os dados para Iniciar essa viagem</p>
       <form onSubmit={enviarFormularios}>
-        <select>
+        <select
+          placeholder={"Viagem"}
+          name={"id"}
+          value={formulario.id}
+          onChange={alterarDadosFormulario}
+          required
+        >
           <option>Selecione sua viagem</option>
           {viagens.map((cadaViagem) => {
-            return <option>{cadaViagem.name}</option>;
+            return (
+              <option key={cadaViagem.id} value={cadaViagem}>
+                {cadaViagem.name}
+              </option>
+            );
           })}
         </select>
         <input
@@ -108,17 +110,20 @@ export default function ApplicationFormPage() {
           onChange={alterarDadosFormulario}
           value={formulario.profession}
         />
-        <select>
-          <option>Selecione o seu país</option>
-          {countries.map((cadaPais) => {
+        <select
+          placeholder={"País"}
+          name={"country"}
+          value={formulario.country}
+          onChange={alterarDadosFormulario}
+          required
+        >
+          <option value={""} disabled>
+            Escolha um País
+          </option>
+          {countries.map((country) => {
             return (
-              <option
-                name={"country"}
-                value={formulario.country}
-                onChange={alterarDadosFormulario}
-                required
-              >
-                {cadaPais}
+              <option value={country} key={country}>
+                {country}
               </option>
             );
           })}

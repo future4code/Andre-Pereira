@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Header from './components/Header'
 import './App.css';
 import HomePage from './pages/HomePage';
 import ListTripsPage from './pages/ListTripsPage';
@@ -12,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Header />
         <Switch>
 
           <Route exact path={'/'}>

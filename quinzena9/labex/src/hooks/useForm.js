@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export const useForm = (estadoInicial) => {
+const useForm = (estadoInicial) => {
     const [formulario, setFormulario] = useState(estadoInicial);
 
     const alterarDadosFormulario = (event) => {
@@ -8,5 +8,11 @@ export const useForm = (estadoInicial) => {
         setFormulario({ ...formulario, [name]: value });
     };
 
-    return { formulario, alterarDadosFormulario }
+    const clean = () => {
+        setFormulario(estadoInicial)
+    }
+
+    return { formulario, alterarDadosFormulario, clean }
 };
+
+export default useForm

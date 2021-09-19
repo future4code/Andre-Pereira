@@ -12,17 +12,11 @@ export default function HomePage() {
     history.push("/form");
   };
 
-  const irLogin = () => {
-      history.push("/login")
-  }
-
   return (
     <div>
       <p>Home Page</p>
       <button onClick={irListaViagens}>Lista de Viagens</button>
       <button onClick={irFormulario}>Formulario de Viagem</button>
-      <button onClick={irLogin}>Login</button>
-
     </div>
   );
 }

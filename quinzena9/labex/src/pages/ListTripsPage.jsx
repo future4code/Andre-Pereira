@@ -17,7 +17,7 @@ export default function ListTripsPage() {
   const listarViagens = async () => {
     try {
       const response = await axios.get(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/trips"
+        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/andre-pereira-johnson/trips"
       );
       setListaViagens(response.data.trips);
     } catch {
