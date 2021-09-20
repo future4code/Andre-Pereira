@@ -1,0 +1,40 @@
+.container__header__login {
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container__header__login h1 {
+    color: white;
+}
+
+.container__header__login button {
+  margin-right: 300px;
+}
+
+.container__form__login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container__form__login input {
+  font-family: "Roboto";
+  display: block;
+  width: 60vw;
+  text-align: center;
+  border-radius: 20px;
+  margin: 20px 0;
+  height: 20px;
+  padding: 20px 0;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.container__form__login button {
+  margin: 24px 12px;
+  text-align: justify;
+  padding: 20px;
+}

@@ -1,0 +1,67 @@
+.container {
+  color: white;
+}
+
+.container__header {
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container__header button {
+    margin-right: 120px;
+}
+
+.container h1 {
+  text-align: center;
+  margin: 24px 0;
+}
+
+.container__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container__form select {
+  width: 60vw;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 12px;
+  background: rgba(150, 150, 150, 0.3);
+  color: white;
+}
+
+.container__form input {
+  font-family: "Roboto";
+  display: block;
+  width: 60vw;
+  text-align: center;
+  border-radius: 20px;
+  margin: 20px 0;
+  height: 20px;
+  padding: 20px 0;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.container__form textarea {
+  width: 60vw;
+  height: 200px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.container__form button {
+  display: inline !important;
+  margin: 20px 20px;
+  text-align: center;
+  padding: 16px;
+}

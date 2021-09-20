@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
+import Button from "@mui/material/Button";
+import "../styles/ListTrips.css";
+import { BsReverseLayoutTextSidebarReverse, BsHouseDoorFill } from "react-icons/bs";
 
 export default function ListTripsPage() {
   const history = useHistory();
@@ -31,22 +34,28 @@ export default function ListTripsPage() {
 
   const viagens = listaViagens.map((cadaViagem) => {
     return (
-      <div>
+      <div className="container__viagens">
         <h2>{cadaViagem.name}</h2>
         <p> {cadaViagem.description} </p>
-        <p> {cadaViagem.planet} </p>
+        <h3> {cadaViagem.planet} </h3>
         <p> Duração em dias: {cadaViagem.durationInDays} </p>
-        <p> {cadaViagem.description} </p>
         <p> {cadaViagem.date} </p>
       </div>
     );
   });
 
   return (
-    <div>
-      <p>Lista de Viagens</p>
-      <button onClick={irInicio}>Ínicio</button>
-      <button onClick={irFormulario}>Inscrição para Viagem</button>
+    <div className="container">
+      <h1>Lista de Viagens</h1>
+      <div className="container__botoes">
+        <Button onClick={irInicio} variant="contained" startIcon={<BsHouseDoorFill />}>
+          Ínicio
+        </Button>
+        <Button onClick={irFormulario} variant="contained" startIcon={<BsReverseLayoutTextSidebarReverse />}>
+          
+          Inscrição
+        </Button>
+      </div>
       {viagens}
     </div>
   );

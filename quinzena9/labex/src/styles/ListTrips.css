@@ -1,0 +1,36 @@
+
+.container h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 24px;
+}
+.container__viagens {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 80vw;
+    border: 1px solid gray;
+    margin: 0 0 12px 100px;
+    padding: 20px;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    border-radius: 30px;
+}
+
+.container__viagens:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.container__botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container__botoes button {
+    margin: 24px 12px;
+    text-align: justify;
+    padding: 20px;
+}
+
