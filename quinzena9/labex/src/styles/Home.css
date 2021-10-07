@@ -1,0 +1,27 @@
+.container__home {
+  color: white;
+}
+
+.container__home h2 {
+  text-align: center;
+  margin-bottom: 8%;
+}
+
+.container__home p {
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.container__botoes {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container__botoes button {
+  margin: 24px 12px;
+  text-align: justify;
+  padding: 20px;
+}
